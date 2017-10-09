@@ -88,6 +88,7 @@ public struct HeroTargetState {
   public var useScaleBasedSizeChange: Bool?
   public var snapshotType: HeroSnapshotType?
 
+  public var nonFadeFromTo: Bool = false
   public var nonFade: Bool = false
   public var forceAnimate: Bool = false
   public var custom: [String:Any]?

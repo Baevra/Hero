@@ -44,7 +44,7 @@ class MatchPreprocessor: BasePreprocessor {
       let isNonOpaque = !fv.isOpaque || fv.alpha < 1 || !tv.isOpaque || tv.alpha < 1
 
       if context.insertToViewFirst {
-        fvState.opacity = 0
+        fvState.opacity = tvState.nonFadeFromTo ? nil : 0
         if !forceNonFade && isNonOpaque {
           tvState.opacity = 0
         } else {
@@ -54,7 +54,7 @@ class MatchPreprocessor: BasePreprocessor {
           }
         }
       } else {
-        tvState.opacity = 0
+        tvState.opacity = fvState.nonFadeFromTo ? nil : 0
         if !forceNonFade && isNonOpaque {
           // cross fade if from/toViews are not opaque
           fvState.opacity = 0
